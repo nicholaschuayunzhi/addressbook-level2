@@ -104,9 +104,9 @@
   # find multiple with same keyword
   find Dickson
   # find tags
-  find t/friends
+  find friends
   # find tags and names
-  find Betsy t/friends
+  find Betsy friends
   # find multiple with some keywords
   find Charlie Betsy
 
