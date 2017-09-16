@@ -21,7 +21,7 @@ public class FindCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names start with "
             + "the specified keywords (case-sensitive) or contains tag(s) specified and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [MORE_KEYWORDS] t/TAG_NAME \n"
+            + "Parameters: KEYWORD [MORE_KEYWORDS]\n"
             + "Example: " + COMMAND_WORD + " alice bob charlie t/tag";
 
     private static final int FIND_DISTANCE_TOLERANCE = 3;
