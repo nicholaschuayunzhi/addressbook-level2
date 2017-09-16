@@ -1,19 +1,14 @@
 package seedu.addressbook.commands;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.junit.Test;
-
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.util.TypicalPersons;
+
+import java.util.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class FindCommandTest {
 
@@ -25,11 +20,11 @@ public class FindCommandTest {
         //same word, same case: matched
         assertFindCommandBehavior(new String[]{"Amy"}, Arrays.asList(td.amy));
 
-        //same word, different case: not matched
-        assertFindCommandBehavior(new String[]{"aMy"}, Collections.emptyList());
+        //same word, different case: matched
+        assertFindCommandBehavior(new String[]{"aMy"}, Arrays.asList(td.amy));
 
-        //partial word: not matched
-        assertFindCommandBehavior(new String[]{"my"}, Collections.emptyList());
+        //partial word: matched
+        assertFindCommandBehavior(new String[]{"my"}, Arrays.asList(td.amy));
 
         //multiple words: matched
         assertFindCommandBehavior(new String[]{"Amy", "Bill", "Candy", "Destiny"},
@@ -71,8 +66,7 @@ public class FindCommandTest {
 
     private FindCommand createFindCommand(String[] keywords, String[] tagwords) {
         final Set<String> keywordSet = new HashSet<>(Arrays.asList(keywords));
-        final Set<String> tagwordSet = new HashSet<>(Arrays.asList(tagwords));
-        FindCommand command = new FindCommand(keywordSet, tagwordSet);
+        FindCommand command = new FindCommand(keywordSet);
         command.setData(addressBook, Collections.emptyList());
         return command;
     }
